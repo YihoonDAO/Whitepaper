@@ -1,2 +1,2 @@
-# HiWeb3
-HiWeb3 DAO
+# ENS-CN
+ENS CN Docs
