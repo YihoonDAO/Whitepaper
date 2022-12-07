@@ -1,0 +1,5 @@
+[book]
+authors = ["bill.bai"]
+language = "zh"
+multilingual = false
+src = "src"
