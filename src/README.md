@@ -16,7 +16,7 @@ ENS部署在以太坊主网络和几个测试网络上。如果使用库，例�
 
 ## ENS架构
 
-ENS 有两个主要组成部分：[注册表](contract-api-reference/ens.md)和[解析器](contract-api-reference/publicresolver.md)。
+ENS 有两个主要组成部分：[注册表](contract-api-reference/ens.md) 和 [解析器](contract-api-reference/publicresolver.md)。
 
 ![](<.gitbook/assets/ens-architecture (1).png>)
 
