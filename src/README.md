@@ -6,7 +6,7 @@ ENS的工作是将人类可读的名称（如“alice.eth”）映射到机器�
 
 ENS的目标与DNS（互联网域名服务）相似，但由于以太坊区块链提供的功能和限制，其架构明显不同。与DNS一样，ENS在一个名为域名的点分隔分层名称系统上运行，域名所有者对子域拥有完全控制权。
 
-顶级域名，如“.eth”和“.test”，由称为注册商的智能合约拥有，这些合约指定了管理其子域名分配的规则。任何人都可以通过遵循这些注册商合同规定的规则，获得域名的所有权供自己使用。ENS 还支持导入用户已拥有的 DNS 名称，以便在 ENS 上使用。
+顶级域名，如“.eth”和“.test”，由称为注册商的智能合约拥有，这些合约指定了管理其子域名分配的规则。任何人都可以通过遵循这些注册商合约规定的规则，获得域名的所有权供自己使用。ENS 还支持导入用户已拥有的 DNS 名称，以便在 ENS 上使用。
 
 由于 ENS 的分层性质，任何拥有任何级别域的人都可以根据需要为自己或他人配置子域。例如，如果Alice拥有“alice.eth”，她可以创建“pay.alice.eth”并根据需要进行配置。
 
@@ -20,54 +20,54 @@ ENS 有两个主要组成部分：[注册表](contract-api-reference/ens.md)和[
 
 ![](<.gitbook/assets/ens-architecture (1).png>)
 
-The ENS registry consists of a single smart contract that maintains a list of all domains and subdomains, and stores three critical pieces of information about each:
+ENS 注册表由一个智能合约组成，该合约维护所有域和子域的列表，并存储有关每个域和子域的三个关键信息：
 
-> * The owner of the domain
-> * The resolver for the domain
-> * The caching time-to-live for all records under the domain
+> * 域名的所有者
+> * 域名的解析程序
+> * 域名下所有记录的缓存生存时间
 
-The owner of a domain may be either an external account (a user) or a smart contract. A registrar is simply a smart contract that owns a domain and issues subdomains of that domain to users that follow some set of rules defined in the contract.
+域的所有者可以是外部帐户（用户）或智能合约。注册商只是一个智能合约，它拥有一个域，并向遵循合约中定义的一组规则的用户颁发该域的子域。
 
-Owners of domains in the ENS registry may:
+ENS 注册管理机构中域名的所有者可以：
 
-> * Set the resolver and TTL for the domain
-> * Transfer ownership of the domain to another address
-> * Change the ownership of subdomains
+> * 设置域名的解析程序和 TTL
+> * 将域名的所有权转移到另一个地址
+> * 更改子域名的所有权
 
-The ENS registry is deliberately straightforward and exists only to map from a name to the resolver responsible for it.
+ENS 注册表故意简单明了，它的存在只是为了从一个名称映射到负责它的解析程序。
 
-Resolvers are responsible for the actual process of translating names into addresses. Any contract that implements the relevant standards may act as a resolver in ENS. General-purpose resolver implementations are offered for users whose requirements are straightforward, such as serving an infrequently changed address for a name.
+解析器负责将名称转换为地址的实际过程。任何实施相关标准的合约都可以充当 ENS 中的解析器。通用解析程序实现是为要求简单的用户提供的，例如为名称提供不经常更改的地址。
 
-Each record type - cryptocurrency address, IPFS content hash, and so forth - defines a method or methods that a resolver must implement in order to provide records of that kind. New record types may be defined at any time via the EIP standardization process, with no need to make changes to the ENS registry or to existing resolvers in order to support them.
+每种记录类型（加密货币地址、IPFS内容哈希等）都定义了解析器必须实现的一个或多个方法，以便提供此类记录。可以随时通过 EIP 标准化流程定义新的记录类型，无需更改 ENS 注册表或现有解析器即可支持它们。
 
-Resolving a name in ENS is a two-step process: First, ask the registry what resolver is responsible for the name, and second, ask that resolver for the answer to your query.
+在 ENS 中解析名称分为两个步骤：首先，询问注册表哪个解析程序负责该名称，其次，向该解析程序询问查询的答案。
 
 ![](https://lh5.googleusercontent.com/\_OPPzaxTxKggx9HuxloeWtK8ggEfIIBKRCEA6BKMwZdzAfUpIY6cz7NK5CFmiuw7TwknbhFNVRCJsswHLqkxUEJ5KdRzpeNbyg8\_H9d2RZdG28kgipT64JyPZUP--bAizozaDcxCq34)
 
-In the above example, we're trying to find the Ethereum address pointed to by 'foo.eth'. First, we ask the registry which resolver is responsible for 'foo.eth'. Then, we query that resolver for the address of 'foo.eth'.
+在上面的例子中，我们试图找到“foo.eth”指向的以太坊地址。首先，我们询问注册管理机构哪个解析器负责“foo.eth”。然后，我们向该解析器查询 'foo.eth' 的地址。
 
-### Namehash
+### 名称哈希
 
-Resource constraints in smart contracts make interacting directly with human-readable names inefficient, so ENS works purely with fixed length 256-bit cryptographic hashes. In order to derive the hash from a name while still preserving its hierarchal properties, a process called Namehash is used. For example, the namehash of 'alice.eth' is _0x787192fc5378cc32aa956ddfdedbf26b24e8d78e40109add0eea2c1a012c3dec_; this is the representation of names that is used exclusively inside ENS.
+智能合约中的资源限制使得直接与人类可读名称的交互效率低下，因此ENS纯粹使用固定长度的256位加密哈希。为了从名称派生哈希，同时仍保留其层次结构属性，使用称为 Namehash 的过程。例如，“alice.eth”的namehash是0x787192fc5378cc32aa956ddfdedbf26b24e8d78e40109add0eea2c1a012c3dec;这是ENS内部专门使用的名称的表示形式。
 
-Namehash is a recursive process that can generate a unique hash for any valid domain name. Starting with the namehash of any domain - for example, 'alice.eth' - it's possible to derive the namehash of any subdomain - for example 'iam.alice.eth' - without having to know or handle the original human-readable name. It is this property that makes it possible for ENS to provide a hierarchal system, without having to deal with human-readable text strings internally.
+Namehash 是一个递归过程，可以为任何有效的域名生成唯一的哈希。从任何域的名称哈希开始 - 例如，“alice.eth” - 可以派生任何子域的名称哈希 - 例如“iam.alice.eth” - 而无需知道或处理原始人类可读的名称。正是此属性使 ENS 能够提供分层系统，而无需在内部处理人类可读的文本字符串。
 
-Before being hashed with namehash, names are first normalized, using a process called UTS-46 normalization. This ensures that upper- and lower-case names are treated equivalently, and that invalid characters are prohibited. Anything that hashes and resolves a name **must** first normalize it, to ensure that all users get a consistent view of ENS.
+在使用 namehash 进行哈希处理之前，首先使用称为 UTS-46 规范化的过程对名称进行规范化。这可确保对大写和小写名称等效处理，并禁止使用无效字符。任何对名称进行哈希处理和解析的操作都**必须**首先对其进行规范化，以确保所有用户都能获得一致的 ENS 视图。
 
-For details on how namehash and normalization works, see the developer documentation on [name processing](contract-api-reference/name-processing.md).
+有关 namehash 和规范化如何工作原理的详细信息，请参阅开发者文档中的[名称处理](contract-api-reference/name-processing.md)。
 
-## Getting Started
+## 入门
 
-ENS has documentation for a variety of audiences, including dapp developers and contract developers, as well as reference documentation.
+ENS 为各种受众提供了文档，包括 dapp 开发人员和合约开发人员，以及参考文档。
 
-#### I'm a dapp developer and want to add ENS support to my dapp
+#### 我是一名 dapp 开发者，想要向我的 dapp 添加 ENS 支持
 
-Check out the dapp developer guide, starting with [ENS Enabling your Dapp](dapp-developer-guide/ens-enabling-your-dapp.md). You'll want to choose one of the many available [ENS Libraries](dapp-developer-guide/ens-libraries.md) to get started working with ENS.
+查看 dapp 开发者指南，从[ENS 启用您的 Dapp](dapp-developer-guide/ens-enabling-your-dapp.md)。您需要从众多可用的[ENS 文档](dapp-developer-guide/ens-libraries.md)中选择一个来开始使用ENS。
 
-#### I'm a contract developer and want to interact with ENS from my contract code
+#### 我是一名合约开发者，想通过我的合约代码与 ENS 交互
 
-Check out the Contract Developer Guide, starting with [Resolving Names On-chain](contract-developer-guide/resolving-names-on-chain.md). You can also [write your own resolver](contract-developer-guide/writing-a-resolver.md) (to customise the process of looking up names), or your own [registrar](contract-developer-guide/writing-a-registrar.md) (to customise the process of registering new names).
+查看合约开发者指南，从[解析链上的名称](contract-developer-guide/resolving-names-on-chain.md)开始。您也可以[编写自己的解析器](contract-developer-guide/writing-a-resolver.md)（自定义查找名称的过程），或您自己的[注册器]（(contract-developer-guide/writing-a-registrar.md)（自定义注册新名称的过程）。
 
-#### I want reference documentation for the ENS smart contracts
+#### 我想要 ENS 智能合约的参考文档
 
-Check out the Contract API Reference. We have reference documentation for ENS's core contract, the [registry](contract-api-reference/ens.md), for [resolvers](contract-api-reference/publicresolver.md), and for commonly-used registrars such as the [Test registrar](contract-api-reference/testregistrar.md), [reverse registrar](contract-api-reference/reverseregistrar.md), and the [.eth registrar](contract-api-reference/.eth-permanent-registrar/).
+查看合约 API 参考。我们有 ENS 核心合约的参考文档，[注册表](contract-api-reference/ens.md)，[解析器](contract-api-reference/publicresolver.md)，以及常用的注册器，如[测试注册商](contract-api-reference/testregistrar.md)、[反向注册器](contract-api-reference/reverseregistrar.md)，和[.eth注册商](contract-api-reference/.eth-permanent-registrar/)。
