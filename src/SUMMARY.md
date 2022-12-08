@@ -3,6 +3,8 @@
 * [介绍](README.md)
 * [术语](terminology.md)
 
+* [ENS 部署](ens-deployments.md)
+
 ## DApp 开发者指南
 
 ## 合约 API 参考
