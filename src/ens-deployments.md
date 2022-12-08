@@ -4,8 +4,7 @@
 
 ENS 注册表部署在 0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e。在Mainnet(主网)和[Goerli](https://www.alchemy.com/overviews/migrate-from-rinkeby-to-goerli)(戈尔利)中使用相同的地址。
 
-On mainnet, the following registrars are deployed:
-在主网上，部署了以下注册商：
+在 mainnet (主网)上，部署了以下注册商：
 
 * .eth，使用 .eth 永久注册商。
 * .xyz，通过 DNS 集成
