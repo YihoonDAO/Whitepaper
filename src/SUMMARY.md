@@ -23,3 +23,5 @@
 ## 合约开发者指南
 
 ## ENS 迁移（2020年2月）
+* [DApp开发者指南](ens-migration-february-2020/guide-for-dapp-developers.md)
+* [技术说明](ens-migration-february-2020/technical-description.md)
