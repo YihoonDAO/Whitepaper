@@ -3,7 +3,7 @@
 * [介绍](README.md)
 * [术语](terminology.md)
 
-## Dapp 开发者指南
+## DApp 开发者指南
 
 ## 合约 API 参考
 
