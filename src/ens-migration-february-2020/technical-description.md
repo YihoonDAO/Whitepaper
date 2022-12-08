@@ -8,7 +8,7 @@ Sam Sun通过以太坊基金会的漏洞赏金流程报告了此漏洞。我们�
 
 因此，ENS正在迁移到新的部署。本文档描述了正在采取的确切技术步骤，以及它们对DApp作者和用户的影响的简要说明。
 
-本文档旨在为任何对迁移的底层细节感兴趣的人提供详细的描述。对于大多数用户或开发人员而言，理解这一点不是必需的；有关漏洞的描述及其对用户的影响，请参阅我们的[平台文章](https://medium.com/the-ethereum-name-service/ens-registry-migration-bug-fix-new-features-64379193a5a)；有关开发人员迁移步骤的说明，请参阅[DApp开发人员指南](ens-migration-february-2020/guide-for-dapp-developers.md)。
+本文档旨在为任何对迁移的底层细节感兴趣的人提供详细的描述。对于大多数用户或开发人员而言，理解这一点不是必需的；有关漏洞的描述及其对用户的影响，请参阅我们的[medium发布](https://medium.com/the-ethereum-name-service/ens-registry-migration-bug-fix-new-features-64379193a5a)；有关开发人员迁移步骤的说明，请参阅[DApp开发人员指南](ens-migration-february-2020/guide-for-dapp-developers.md)。
 
 ## 新的ENS部署
 
