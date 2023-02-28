@@ -2,10 +2,7 @@
 
 We believe that the following applications should emerge based on .dao.
 
-Sending end-to-end encrypted messages using .dao accounts
-
-Aggregate reputation across multiple chains using .dao accounts
-
-Login to centralized services using .dao accounts
-
-Decentralized personal pages/social networks based on .dao accounts
+1. Send end-to-end Encrypted Messages using a .dao account
+2. Aggregate reputations across multiple chains using .dao accounts
+3. Use your .dao account to log in to the centralized service
+4. Decentralized personal homepage/social network based on .dao account
