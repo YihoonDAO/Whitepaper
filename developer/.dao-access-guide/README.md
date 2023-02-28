@@ -51,7 +51,7 @@ If you don't have a development idea, you can go here for inspiration 😯.
 
 **The .dao alias** is one of the most powerful capabilities of .dao, which provides users with additional security in the blockchain world.
 
-> [**.Bit Alias Guidelines**](https://app.skiff.com/file/d1ba5cf9-f645-4a7d-be37-62f5157621ea)
+> \*\*\*\*[**.Bit Alias Guidelines**](https://app.skiff.com/file/d1ba5cf9-f645-4a7d-be37-62f5157621ea)**\*\*\*\***
 
 ### Preparation before access
 
