@@ -1,5 +1,5 @@
 # Application examples
 
-If you don't have an idea, you can go here for inspiration 😯.
+If you don't have a development idea, you can go here for inspiration.
 
-[Application Examples](../../../overview/faq/registration-related/how-can-i-get-a-reserved-account.md)
+> [**Application example**](https://app.skiff.com/file/b039a41b-9de9-408b-aeea-f81e754916eb)
