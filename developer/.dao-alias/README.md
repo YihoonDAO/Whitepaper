@@ -4,10 +4,8 @@
 
 Now the .dao alias supports addresses such as ETH/BSC/TRX/Polygon.Users can visit [**the .dao Alias App** ](https://didao.id/)and log in to the wallet, after which they can set the .dao alias of their corresponding address.
 
-> See [the .dao Alias Setup Guide](https://didao.id/)
-
-\
-
+> See [the .dao Alias Setup Guide](https://didao.id/)\
+>
 
 ### Parse .dao aliases
 
@@ -34,7 +32,6 @@ console.assert(account === 'imac.dao')
 
 > Specific parameter values see the following [**parameter details**](https://app.skiff.com/file/d8eb025f-4341-4acc-b714-55b30c304536)
 
-\
 
 
 #### backend parsing
