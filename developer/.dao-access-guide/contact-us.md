@@ -1,9 +1,7 @@
 # Contact Us
 
-If you encounter any problems in development, you can always contact us at
+If you encounter any problems with development, you can contact us at any time through the following ways:
 
-Diao Discord
-
-Diao Twitter
-
-\*\*\*\*@didao.id
+* **.dao Discord**
+* [**.dao Twitter**](https://twitter.com/didaowners?s=20)
+* \*\*_\*\*_@didao.id
